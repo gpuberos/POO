@@ -11,7 +11,7 @@ $merlin->attaque($harry);
 if ($harry->mort()) {
     echo 'Harry est mort';
 } else {
-    echo 'Harry a survécu avec ' . $harry->vie;
+    echo 'Harry a survécu avec ' . $harry->getVie();
 }
 
 var_dump($merlin);

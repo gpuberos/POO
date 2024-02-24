@@ -6,8 +6,8 @@ class Personnage
 
     // Définition des Propriétés de Personnage : 
     // caractéristiques qui vont caractériser notre objet
-    public $vie = 80;
-    public $atk = 20;
+    private $vie = 80;
+    private $atk = 20;
     private $nom;
 
     // Lorsqu'on instance notre classe on fait appel à un constructeur (ça appelle une fonction __construct)
@@ -16,9 +16,25 @@ class Personnage
         $this->nom = $nom;
     }
 
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+    }
+
     public function getNom()
     {
         return $this->nom;
+    }
+    
+
+    public function getVie()
+    {
+        return $this->vie;
+    }
+
+    public function getAtk()
+    {
+        return $this->atk;
     }
 
     public function regenerer($vie = null)
@@ -35,6 +51,13 @@ class Personnage
     {
         // Retourne true si vie <= 0
         return $this->vie <= 0;
+    }
+
+    private function empecherNegatif()
+    {
+        if ($this->vie < 0) {
+            $this->vie = 0;
+        }
     }
 
     public function attaque($cible)

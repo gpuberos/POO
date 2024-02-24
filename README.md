@@ -202,6 +202,35 @@ Il existe **3 niveaux de visibilité** pour les variables (ou propriétés) dans
 
 Ces niveaux de visibilité permettent de contrôler l'accès aux propriétés d'une classe et de garantir l'intégrité des données.
 
+#### Getter & Setter
+
+> [!IMPORTANT]
+> Par défaut en général on déclare les propriétés (ou variables) d'une classe comme `private`.
+
+Pour permettre un accès contrôlé à ces propriétés, on utilise généralement des méthodes spéciales appelées "accesseurs" et "mutateurs", ou plus communément "getters" et "setters".
+- Un **getter** est une méthode qui renvoie la valeur d'une propriété privée.
+- Un **setter** est une méthode qui définit la valeur d'une propriété privée.
+
+```php
+class Personne {
+    private $nom;
+
+    // Getter pour 'nom'
+    public function getNom() {
+        return $this->nom;
+    }
+
+    // Setter pour 'nom'
+    public function setNom($nom) {
+        $this->nom = $nom;
+    }
+}
+
+$personne = new Personne();
+$personne->setNom("Merlin");  // Utilise le setter pour définir 'nom'
+echo $personne->getNom();  // Utilise le getter pour afficher 'nom'
+```
+
 ## Design patterns
 
 ### Comment organiser ses objets

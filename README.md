@@ -161,6 +161,26 @@ $date->years
 
 ```
 
+### Constructeur
+
+Un **constructeur** sert à initialisé les propriétés de l'objet. On peut passer des valeurs au constructeur et on peut utiliser ces valeurs pour définir les propriétés de l'objet. Le nom de la méthode en PHP est `__construct`.
+
+```php
+class Personne {
+    public $nom;
+
+    public function __construct($nom) {
+        $this->nom = $nom;
+    }
+}
+
+$personne = new Personne("Merlin");
+echo $personne->nom;  // Affiche "Merlin"
+```
+
+La classe `Personne` a un constructeur qui prend un argument `$nom`. Lorsqu'on crée un nouvel objet `Personne`, on passe la chaîne de caractère `"Merlin"` au constructeur. Le constructeur assigne cette valeur à la propriété `nom` de l'objet. Donc après la création de l'objet, `$personne->nom` vaut `"Merlin"`.
+
+
 ### Méthodes
 
 Sur notre objet on va pouvoir y appliquer des méthodes particulières. C'est exactement la même chose qu'une fonction sauf qu'elle s'applique sur un objet, sur une instance d'objet.

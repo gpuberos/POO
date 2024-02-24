@@ -6,8 +6,15 @@
 
 Un objet est une instance d’une classe. Une classe est une structure qui définit les propriétés (aussi appelées attributs) et les méthodes (fonctions) que tous les objets de cette classe auront.
 
+**En résumé** :
+
+On crée une classe dans cette classe on va pouvoir définir des propriétés, ces propriétés sont des variables spécifiques ou des caractéristiques et ensuite on peut faire des méthodes (c'est comme des fonctions). Ces méthodes peuvent prendre des paramètres et elles peuvent manipuler l'instance en utilisant le mot clé `$this` qui fera toujours référence à l'objet sur lequel la méthode est utilisé.
+
+> [!TIP]
+> **Bonne pratique** : on crée un fichier PHP par classe.
+
 > [!NOTE]
-> Bonne pratique : on crée un fichier PHP par classe.
+> PHP a la capacité de créer des propriétés dynamiquement, cependant, il n’est pas recommandé de le faire car cela peut rendre le code plus difficile à comprendre.
 
 **Exemple avec les dates** :
 
@@ -115,7 +122,9 @@ $date->format('d/m/Y');
   
 La classe `MaDate` encapsule un objet `DateTime` de PHP. Elle fournit des méthodes pour ajouter des jours `addDays` et des mois `addMonths` à la date, et pour formater `format` la date.  
   
-`$this` est une référence à l'objet courant `MaDate` (l'instance de la classe dans laquelle la méthode est appelée). On l'utilise pour accéder aux propriétés et méthodes de l'objet.  
+`$this` est une référence à l'objet courant `MaDate` (l'instance de la classe dans laquelle la méthode est appelée). On l'utilise pour accéder aux propriétés et méthodes de l'objet. En résumé : pour connaitre sur quel objet je suis on utilise une variable particulière `$this`, elle fait référence à l'instance en cours.
+
+Lorsqu'on veut accéder à quelque chose dans l'objet on utilise `->`
   
 `date` est une propriété de l'objet `MaDate`. Cette propriété contient un autre objet qui est une instance de la classe `DateTime`. Donc quand on utilise `$this->date` on accède à la propriété `date` de l'objet `MaDate`.  
   

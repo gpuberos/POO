@@ -112,6 +112,7 @@ $date->addMonths(2);
 // Affiche la date au format 'd/m/Y'
 $date->format('d/m/Y');
 ```
+  
 La classe `MaDate` encapsule un objet `DateTime` de PHP. Elle fournit des méthodes pour ajouter des jours `addDays` et des mois `addMonths` à la date, et pour formater `format` la date.  
   
 `$this` est une référence à l'objet courant `MaDate` (l'instance de la classe dans laquelle la méthode est appelée). On l'utilise pour accéder aux propriétés et méthodes de l'objet.  
@@ -119,6 +120,10 @@ La classe `MaDate` encapsule un objet `DateTime` de PHP. Elle fournit des métho
 `date` est une propriété de l'objet `MaDate`. Cette propriété contient un autre objet qui est une instance de la classe `DateTime`. Donc quand on utilise `$this->date` on accède à la propriété `date` de l'objet `MaDate`.  
   
 `modify` est une méthode de l'objet `DateTime` en PHP. Cette méthode modifie l'objet `DateTime` en ajoutant des jours, mois...
+
+**Source** :
+- https://www.php.net/manual/fr/datetime.modify  
+
 
 ### Instanciation
 

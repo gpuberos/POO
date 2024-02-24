@@ -16,3 +16,5 @@ if ($harry->mort()) {
 
 var_dump($merlin);
 var_dump($harry);
+
+echo $merlin->getNom();

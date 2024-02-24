@@ -8,12 +8,17 @@ class Personnage
     // caractéristiques qui vont caractériser notre objet
     public $vie = 80;
     public $atk = 20;
-    public $nom;
+    private $nom;
 
     // Lorsqu'on instance notre classe on fait appel à un constructeur (ça appelle une fonction __construct)
     public function __construct($nom)
     {
         $this->nom = $nom;
+    }
+
+    public function getNom()
+    {
+        return $this->nom;
     }
 
     public function regenerer($vie = null)

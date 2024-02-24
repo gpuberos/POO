@@ -4,7 +4,7 @@
 
 ### C'est quoi ?
 
-Un objet est une instance d’une classe. Une classe est une structure qui définit les propriétés (aussi appelées attributs) et les méthodes (fonctions) que tous les objets de cette classe auront.
+Un objet est une instance d'une classe. Une classe est une structure qui définit les propriétés (aussi appelées attributs) et les méthodes (fonctions) que tous les objets de cette classe auront.
 
 **En résumé** :
 
@@ -14,7 +14,7 @@ On crée une classe dans cette classe on va pouvoir définir des propriétés, c
 > **Bonne pratique** : on crée un fichier PHP par classe.
 
 > [!NOTE]
-> PHP a la capacité de créer des propriétés dynamiquement, cependant, il n’est pas recommandé de le faire car cela peut rendre le code plus difficile à comprendre.
+> PHP a la capacité de créer des propriétés dynamiquement, cependant, il n'est pas recommandé de le faire car cela peut rendre le code plus difficile à comprendre.
 
 **Exemple avec les dates** :
 
@@ -172,6 +172,15 @@ $date->addDays(2)
 $date->format('d/m/Y')
 
 ```
+
+### Visibilités et portées des variables
+
+Il existe **3 niveaux de visibilité** pour les variables (ou propriétés) dans une classe PHP :
+- **`public`** : Une propriété déclarée comme `public` est accessible à la fois à l'intérieur de la classe où elle est définie et à l'extérieur de cette classe.
+- **`private`** : Une propriété déclarée comme `private` est uniquement accessible à l'intérieur de la classe où elle est définie. Elle n'est pas accessible en dehors de cette classe.
+- **`protected`** : Une propriété déclarée comme `protected` est accessible à l'intérieur de la classe où elle est définie ainsi que dans toutes les classes qui héritent de cette classe.
+
+Ces niveaux de visibilité permettent de contrôler l'accès aux propriétés d'une classe et de garantir l'intégrité des données.
 
 ## Design patterns
 

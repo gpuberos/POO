@@ -155,9 +155,9 @@ Sur nos objets on va avoir nos propriétés, nos objets vont avoir leurs variabl
 Un objet va pouvoir avoir différent attributs ou différente propriétés. Ce sont des variables à l'intérieur de notre objet.
 
 ```php
-$date->days
-$date->months
-$date->years
+$date->days;
+$date->months;
+$date->years;
 
 ```
 
@@ -186,10 +186,10 @@ La classe `Personne` a un constructeur qui prend un argument `$nom`. Lorsqu'on c
 Sur notre objet on va pouvoir y appliquer des méthodes particulières. C'est exactement la même chose qu'une fonction sauf qu'elle s'applique sur un objet, sur une instance d'objet.
 
 ```php
-$date->days()
-$date->months()
-$date->addDays(2)
-$date->format('d/m/Y')
+$date->days();
+$date->months();
+$date->addDays(2);
+$date->format('d/m/Y');
 
 ```
 
@@ -208,6 +208,7 @@ Ces niveaux de visibilité permettent de contrôler l'accès aux propriétés d'
 > Par défaut en général on déclare les propriétés (ou variables) d'une classe comme `private`.
 
 Pour permettre un accès contrôlé à ces propriétés, on utilise généralement des méthodes spéciales appelées "accesseurs" et "mutateurs", ou plus communément "getters" et "setters".
+
 - Un **getter** est une méthode qui renvoie la valeur d'une propriété privée.
 - Un **setter** est une méthode qui définit la valeur d'une propriété privée.
 

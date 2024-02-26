@@ -225,7 +225,10 @@ Il existe **3 niveaux de visibilité** pour les variables (ou propriétés) dans
 - **`protected`** : Une propriété déclarée comme `protected` est accessible à l'intérieur de la classe où elle est définie (classe parente) ainsi que dans toutes les classes qui héritent de cette classe.
 
 > [!NOTE]
-> Bien que l'attribution d'un niveau de visibilité aux méthodes et constantes ne soit pas obligatoir en PHP, il est fortement recommandé de le faire. Si aucun niveau de visibilité n'est explicitement défini alors elle sera automatiquement définir comme `public`.
+> Bien que l'attribution d'un niveau de visibilité des propriétés dans une classe ne soit pas obligatoire en PHP, il est fortement recommandé de le faire. Si aucun niveau de visibilité n'est explicitement défini pour une propriété alors elle sera automatiquement défini comme `public`.  
+>
+> On définira généralement nos méthodes avec le mot clé `public` et nos propriétés avec les mots clés `protected` ou `private`.
+
 
 #### Getter & Setter
 
@@ -259,8 +262,70 @@ $personne->setNom("Merlin");  // Utilise le setter pour définir 'nom'
 echo $personne->getNom();  // Utilise le getter pour afficher 'nom'
 ```
 
+## Classes étendues et héritage
 
+Créer une classe "fille" grâce au mot clé `extends` qui va hériter de toutes les propriétés et méthodes de son parent par défaut (celle qui ne sont pas définie en `private`).
 
+> ![WARNING]
+> Afin d'être utilisées, les classes doivent déjà être connues et la classe mère doit être définie avant l'écriture d'un héritage (inclure les classes mères et fille dans le fichier de script principal en commençant par la mère).
+
+**user.class.php**
+```php
+// Classe mère
+class User
+{
+    // Déclaration des propriétés de notre classe Utilisateur
+    // Private : propriétés accessible uniquement depuis l'intérieur de la classe
+    protected $user_name;
+    protected $user_pass;
+
+    public function __construct($n, $p)
+    {
+        $this->user_name = $n;
+        $this->user_pass = $p;
+    }
+
+    public function __destruct()
+    {
+        //Du code à exécuter
+    }
+
+    // Méthode getters : récupérer des valeurs
+    public function getName()
+    {
+        // $this (pseudo-variable) qui sert à faire référence à l'objet intancié
+        return $this->user_name;
+    }
+
+}
+```
+
+L'intérêt principal d'étendre des classes plutôt que d'en définir de nouvelles se trouve dans la notion d'héritage des propriétés et des méthodes : chaque classe étendue va hériter des propriétés et des méthodes (non privées) de la classe mère. Cela permettra une meilleure maintenabilité du code car en cas de changement il suffira de modifier le code de la classe mère.
+
+**admin.class.php**
+```php
+// Classe étendue
+class Admin extends User 
+{
+    // On tente d'afficher $user_name qui n'existe pas dans Admin
+    public function getName2() 
+    {
+        return $this->user_name;
+    }
+
+    /* 
+    On surcharge la méthode getName() de User. Ici, on conserve
+    le même code dans la méthode mais c'est cette méthode qui sera
+    utilisée par $pierre
+    */
+    public function getName()
+    {
+        return $this->user_name;
+    }
+}
+```
+> [!NOTE]
+> Lorsqu'on crée une architecture en POO PHP et qu'on laisse la possibilité à des développeurs externes de modifier ou d'étendre cette architecture, il sera nécessaire de proposer une rétrocompatibilité du code à chaque mise à jour importante.
 
 ## Design patterns
 

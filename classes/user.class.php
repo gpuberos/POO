@@ -1,11 +1,12 @@
 <?php
 
+// Classe mère
 class User
 {
     // Déclaration des propriétés de notre classe Utilisateur
     // Private : propriétés accessible uniquement depuis l'intérieur de la classe
-    private $user_name;
-    private $user_pass;
+    protected $user_name;
+    protected $user_pass;
 
     public function __construct($n, $p)
     {

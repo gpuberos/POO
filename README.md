@@ -213,16 +213,23 @@ $date->format('d/m/Y');
 
 ```
 
+## Encapsulation
+
+L'encapsulation est le mécanisme qui regroupe les données (propriétés, etc.) et les méthodes permettant de les manipuler au sein d'une même classe.  L'objectif principal est de prévenir l'accès direct à certaines propriétés, méthodes ou constantes depuis l'extérieur de la classe, garantissant ainsi l'intégrité des données. Pour cela, on utilise des modificateurs d'accès, aussi appelés niveaux de visibilité, qui sont représentés par les mots-clés `public`, `private` et `protected`.
+
 ### Visibilités et portées des variables
 
 Il existe **3 niveaux de visibilité** pour les variables (ou propriétés) dans une classe PHP :
 - **`public`** : Une propriété déclarée comme `public` est accessible à la fois à l'intérieur de la classe où elle est définie et à l'extérieur de cette classe.
 - **`private`** : Une propriété déclarée comme `private` est uniquement accessible à l'intérieur de la classe où elle est définie. Elle n'est pas accessible en dehors de cette classe.
-- **`protected`** : Une propriété déclarée comme `protected` est accessible à l'intérieur de la classe où elle est définie ainsi que dans toutes les classes qui héritent de cette classe.
+- **`protected`** : Une propriété déclarée comme `protected` est accessible à l'intérieur de la classe où elle est définie (classe parente) ainsi que dans toutes les classes qui héritent de cette classe.
 
-Ces niveaux de visibilité permettent de contrôler l'accès aux propriétés d'une classe et de garantir l'intégrité des données.
+> [!NOTE]
+> Bien que l'attribution d'un niveau de visibilité aux méthodes et constantes ne soit pas obligatoir en PHP, il est fortement recommandé de le faire. Si aucun niveau de visibilité n'est explicitement défini alors elle sera automatiquement définir comme `public`.
 
 #### Getter & Setter
+
+Avec l'encapsulation, chaque objet contrôle son propre état interne par des méthodes (getters et setters)
 
 > [!IMPORTANT]
 > Par défaut en général on déclare les propriétés (ou variables) d'une classe comme `private`.
@@ -251,6 +258,9 @@ $personne = new Personne();
 $personne->setNom("Merlin");  // Utilise le setter pour définir 'nom'
 echo $personne->getNom();  // Utilise le getter pour afficher 'nom'
 ```
+
+
+
 
 ## Design patterns
 

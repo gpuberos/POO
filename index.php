@@ -1,20 +1,40 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
 
-require 'Personnage.php';
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <title>Cours POO</title>
+</head>
 
-// Création d'un nouveau personnage (nouvelle instance de Personnage)
-$merlin = new Personnage("Merlin");
-$harry = new Personnage("Harry");
+<body>
+    <h1>Titre principal</h1>
 
-$merlin->attaque($harry);
+    <form action="#" method="post">
+        <label for="name">Nom d'utilisateur : </label>
+        <input type="text" name="name" id="name"><br>
+        <label for="pass">Choisissez un mot de passe : </label>
+        <input type="password" name="pass" id="pass"><br>
+        <input type="submit" value="Envoyer">
+    </form>
 
-if ($harry->mort()) {
-    echo 'Harry est mort';
-} else {
-    echo 'Harry a survécu avec ' . $harry->getVie();
-}
+    <?php
+    require_once __DIR__ . '/classes/user.class.php';
 
-var_dump($merlin);
-var_dump($harry);
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        // + Vérification des données reçues (regex + filtres)
+        // + Stockage des données (base de données)
 
-echo $merlin->getNom();
+        $pierre = new User($_POST['name'], $_POST['pass']);
+
+        echo $pierre->getName() . '<br>';
+    }
+
+    ?>
+
+    <p>Un paragraphe</p>
+
+</body>
+
+</html>

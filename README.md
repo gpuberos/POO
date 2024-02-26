@@ -163,7 +163,7 @@ $date->years;
 
 ### Constructeur
 
-Un **constructeur** sert à initialisé les propriétés de l'objet. On peut passer des valeurs au constructeur et on peut utiliser ces valeurs pour définir les propriétés de l'objet. Le nom de la méthode en PHP est `__construct`.
+La méthode **constructeur** sert à initialisé les propriétés de l'objet. On peut passer des valeurs au constructeur et on peut utiliser ces valeurs pour définir les propriétés de l'objet. Le nom de la méthode en PHP est `__construct`.
 
 ```php
 class Personne {
@@ -180,6 +180,26 @@ echo $personne->nom;  // Affiche "Merlin"
 
 La classe `Personne` a un constructeur qui prend un argument `$nom`. Lorsqu'on crée un nouvel objet `Personne`, on passe la chaîne de caractère `"Merlin"` au constructeur. Le constructeur assigne cette valeur à la propriété `nom` de l'objet. Donc après la création de l'objet, `$personne->nom` vaut `"Merlin"`.
 
+### Destructeur
+
+La méthode **destructeur sert à libérer les ressources (détruire la classe) par exemple ferme une connexion à une base de données ou supprimer des fichiers temporaires. Dans certains cas, on voudra effectuer certaines actions juste avant que nos objets ne soient détruits (sauvegarder des valeurs de propriétés mis à jour ...)
+
+```php
+class Maison {
+    public function __construct() {
+        return 'La maison est construite.';
+    }
+
+    public function __destruct() {
+        return 'La maison est détruite.';
+    }
+}
+
+// Affiche : La maison est construite.
+// Quand le script se termine, il affiche : La maison est détruite.
+$maMaison = new Maison(); 
+
+```
 
 ### Méthodes
 

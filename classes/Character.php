@@ -1,5 +1,7 @@
 <?php
 
+namespace Tutorial;
+
 // Création de la classe Character
 class Character
 {

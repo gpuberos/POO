@@ -1,5 +1,7 @@
 <?php
 
+namespace Tutorial;
+
 class Archer extends Character
 {
     public $life = 40;

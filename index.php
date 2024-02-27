@@ -1,9 +1,11 @@
     <?php
 
+    use \Tutorial\HTML\Form;
+
     require __DIR__ . '/classes/Form.php';
     require __DIR__ . '/classes/Text.php';
 
-    $form = new Form($_POST);
+    $form = new \Tutorial\HTML\Form($_POST);
     
     var_dump(Text::withZero(10));
 

@@ -12,7 +12,8 @@ Un objet est une instance d'une classe. Une classe est une structure qui défini
 
 On crée une classe dans cette classe on va pouvoir définir des propriétés, ces propriétés sont des variables spécifiques ou des caractéristiques et ensuite on peut faire des méthodes (c'est comme des fonctions). Ces méthodes peuvent prendre des paramètres et elles peuvent manipuler l'instance en utilisant le mot clé `$this` qui fera toujours référence à l'objet sur lequel la méthode est utilisé.
 
-> [!TIP] > **Bonne pratique** : on crée un fichier PHP par classe.
+> [!TIP] 
+> **Bonne pratique** : on crée un fichier PHP par classe.
 
 > [!NOTE]
 > PHP a la capacité de créer des propriétés dynamiquement, cependant, il n'est pas recommandé de le faire car cela peut rendre le code plus difficile à comprendre.

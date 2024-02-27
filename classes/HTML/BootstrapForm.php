@@ -1,13 +1,9 @@
 <?php
 
+namespace Tutorial\HTML;
+
 class BootstrapForm extends Form
 {
-    /**
-     * 
-     * @param string $name 
-     * @return string 
-     */
-
     protected function surround($html)
     {
         return "<div class=\"form-group\">{$html}</div>";
@@ -21,10 +17,6 @@ class BootstrapForm extends Form
         );
     }
 
-    /**
-     * 
-     * @return string 
-     */
     public function submit()
     {
         return '<button type="submit" class="btn btn-primary mt-3">Envoyer</button>';

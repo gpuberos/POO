@@ -16,6 +16,9 @@
 
     <?php
 
+    use \Tutorial\HTML\BootstrapForm;
+    use \Tutorial\Autoloader;
+
     require __DIR__ . '/classes/Autoloader.php';
     
     Autoloader::register();

@@ -1,5 +1,7 @@
 # POO (Programmation Orientée Objet)
 
+La POO est un paradigme de programmation qui permet d'organiser le code en utilisant des objets.
+
 ## Les objets
 
 ### C'est quoi ?
@@ -185,7 +187,7 @@ La classe `Personne` a un constructeur qui prend un argument `$nom`. Lorsqu'on c
 
 ### Destructeur
 
-La méthode \*\*destructeur sert à libérer les ressources (détruire la classe) par exemple ferme une connexion à une base de données ou supprimer des fichiers temporaires. Dans certains cas, on voudra effectuer certaines actions juste avant que nos objets ne soient détruits (sauvegarder des valeurs de propriétés mis à jour ...)
+La méthode **destructeur** sert à libérer les ressources (détruire la classe) par exemple ferme une connexion à une base de données ou supprimer des fichiers temporaires. Dans certains cas, on voudra effectuer certaines actions juste avant que nos objets ne soient détruits (sauvegarder des valeurs de propriétés mis à jour ...)
 
 ```php
 class Maison {
@@ -257,7 +259,7 @@ echo $personne->getNom();  // Utilise le getter pour afficher 'nom'
 
 Créer une classe "fille" grâce au mot clé `extends` qui va hériter de toutes les propriétés et méthodes de son parent par défaut (celle qui ne sont pas définie en `private`).
 
-> ![WARNING]
+> [!WARNING]
 > Afin d'être utilisées, les classes doivent déjà être connues et la classe mère doit être définie avant l'écriture d'un héritage (inclure les classes mères et fille dans le fichier de script principal en commençant par la mère).
 
 **user.class.php**
@@ -344,13 +346,15 @@ Pour **déclarer** une propriété ou une méthode statique on utilise le mot-cl
 
 Pour **accéder** à une propriété statique on utilise l'opérateur de résolution de portée `::`.
 
-Les propriétés statiques sont utiles pour stocker des valeurs partagées par toutes les instances d'une classe, tandis que les méthodes statiques agissent sur la classe elle-même, sans nécessiter d’instanciation.
+Les propriétés statiques sont utiles pour stocker des valeurs partagées par toutes les instances d'une classe, tandis que les méthodes statiques agissent sur la classe elle-même, sans nécessiter d'instanciation.
 
 **classe avec méthode statique**
 
 ```php
-class Text {
-    public static function withZero($number){
+class Text
+{
+    public static function withZero($number)
+    {
         if ($number < 10) {
             return '0' . $number;
         } else {
@@ -371,3 +375,39 @@ Text::withZero(4)
 ## Design patterns
 
 ### Comment organiser ses objets
+
+# L'architecture Modèle-Vue-Contrôleur (MVC)
+
+Le MVC est une structure qui permet de séparer les différentes parties d'une application :
+
+- **Modèles** : Gèrent les données et leur persistance (par exemple, accès à une base de données).
+- **Vues** : Génèrent l'affichage final des pages (génération du code HTML).
+- **Contrôleurs** : Réceptionnent les données entrées par l'utilisateur, communiquent avec les modèles et transmettent les informations aux vues.
+
+Le **MVC** sépare les responsabilités entre **modèles**, **vues** et **contrôleurs** pour rendre le code plus maintenable et mieux organisé.
+
+```php
+// Modèle (exemple simplifié)
+class Article {
+    public static function getArticles() {
+        // Récupère les articles depuis la base de données
+        // ...
+    }
+}
+
+// Contrôleur
+class ArticleController {
+    public function afficherArticles() {
+        $articles = Article::getArticles();
+        // Appelle la vue pour afficher les articles
+        // ...
+    }
+}
+
+// Vue (génère le HTML)
+foreach ($articles as $article) {
+    echo "<h2>" . $article->titre . "</h2>";
+    echo "<p>" . $article->contenu . "</p>";
+}
+
+```

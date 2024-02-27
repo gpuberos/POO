@@ -166,6 +166,9 @@ $date->years;
 
 ```
 
+Source :
+- https://www.php.net/manual/fr/language.types.declarations.php
+
 ### Constructeur
 
 La méthode **constructeur** sert à initialisé les propriétés de l'objet. On peut passer des valeurs au constructeur et on peut utiliser ces valeurs pour définir les propriétés de l'objet. Le nom de la méthode en PHP est `__construct`.
@@ -245,8 +248,8 @@ class Personne {
     }
 
     // Setter pour 'nom'
-    public function setNom($nom) {
-        $this->nom = $nom;
+    public function setNom($nouveauNom) {
+        $this->nom = $nouveauNom;
     }
 }
 
@@ -371,6 +374,16 @@ require __DIR__ . '/classes/text.class.php';
 
 Text::withZero(4)
 ```
+
+**self** fait référence à la classe courante dans laquelle cette instruction est utilisée.
+Lorsque vous appelez `self::`, vous accédez aux méthodes statiques ou propriétés statiques de cette classe.
+
+##### Quel est l'intérêt de mettre une méthode ou une propriété en statique ?
+
+1. **Partage de données** : Lorsqu'une propriété est déclarée comme `static`, elle est partagée entre toutes les instances de la classe. Cela signifie que chaque objet n'a pas sa propre copie de cette propriété, mais qu'elle est commune à tous. Si vous modifiez une valeur dans une instance, cela affectera toutes les autres instances.
+2. **Accès sans instanciation** : Les méthodes et propriétés statiques peuvent être appelées sans créer d'objet de la classe. Cela peut être utile lorsque vous avez des fonctionnalités qui ne dépendent pas de l'état d'un objet spécifique. On utilisera par exemple `self::$suffix` car la propriété `$suffix` est défini en statique.
+3. **Utilisation de méthodes utilitaires** : On utilisera pour créer des **fonctions utilitaires** qui ne nécessitent pas d'état d'objet. Par exemple, une méthode statique pour formater une date, générer un identifiant unique, effectuer des calculs mathématiques ...
+4. **Performance** : L'accès à une méthode ou à une propriété statique est généralement plus rapide que l'accès à une méthode ou à une propriété non statique, car il n'y a pas de surcharge liée à la création d'un objet.
 
 ## Design patterns
 

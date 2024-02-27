@@ -16,7 +16,3 @@ var_dump(Text::withZero(4));
         echo $form->submit();
     ?>
 </form>
-
-
-    
-

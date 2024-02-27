@@ -4,12 +4,12 @@
 class Character
 {
 
-    private static $maxLife = 120;
+    protected static $maxLife = 120;
     // Définition des Propriétés de Character : 
     // caractéristiques qui vont caractériser notre objet
-    private $life = 20;
-    private $atk = 20;
-    private $name;
+    protected $life = 80;
+    protected $atk = 20;
+    protected $name;
 
     // Lorsqu'on instance notre classe on fait appel à un constructeur (ça appelle une fonction __construct)
     public function __construct($name)
@@ -26,7 +26,7 @@ class Character
     {
         return $this->name;
     }
-    
+
 
     public function getLife()
     {
@@ -54,7 +54,7 @@ class Character
         return $this->life <= 0;
     }
 
-    private function empecherNegatif()
+    protected function preventNegative()
     {
         if ($this->life < 0) {
             $this->life = 0;
@@ -63,12 +63,7 @@ class Character
 
     public function attack($target)
     {
-        // $this // Attaquant
-        // $cible // Defenseur
-        // defenseur.life -= attaquant.atk
-
         $target->life -= $this->atk;
-
-        var_dump($target);
+        $target->preventNegative();
     }
 }
